@@ -6,6 +6,7 @@
 package QuizHut;
 
 import javax.swing.*;
+import java.sql.*;
 
 /**
  *
@@ -62,7 +63,7 @@ public class QuizHutMain extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Welcome To The Quizhut");
+        connection();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -98,6 +99,20 @@ public class QuizHutMain extends javax.swing.JFrame {
                 new QuizHutMain().setVisible(true);
             }
         });
+    }
+    
+    private void connection(){
+        try {
+            String url = "jdbc:mysql://localhost:3300/quizhut";
+            String uname = "root";
+            String pass = "";
+            Connection con = DriverManager.getConnection(url, uname, pass);
+            JOptionPane.showMessageDialog(null, "Connected!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
