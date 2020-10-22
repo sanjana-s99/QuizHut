@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c05317d-8dcd-4852-94d5-185647b63342" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/quizhut/DatabaseCon.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/DatabaseCon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/quizhut/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/Login$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/quizhut/Login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/Login$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/quizhut/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/Login.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain.form" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/QuizHutMain.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/quizhut/Register$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/Register$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/quizhut/Register$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/Register$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/quizhut/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/quizhut/Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QuizHut/DatabaseCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuizHut/DatabaseCon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuizHut/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuizHut/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuizHut/QuizHutMain.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuizHut/QuizHutMain.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/QuizHut/QuizHutMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QuizHut/QuizHutMain.java" afterDir="false" />

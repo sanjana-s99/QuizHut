@@ -70,8 +70,8 @@ public class Login extends javax.swing.JFrame {
             rs = ps.executeQuery();
             if(rs.next())
             {
-                JOptionPane.showMessageDialog(null, "Welcome < "+uname+" >");
                 this.dispose();
+                new QuizHutMain(uname).setVisible(true);
             }
             else{
                     JOptionPane.showMessageDialog(null, "Incorrect Username Or Password", "Login Failed", 2);

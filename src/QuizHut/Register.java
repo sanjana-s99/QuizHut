@@ -135,6 +135,8 @@ public class Register extends javax.swing.JFrame {
             if(ps.executeUpdate() > 0)
             {
                 JOptionPane.showMessageDialog(null, "Register Successful");
+                this.dispose();
+                new Login().setVisible(true);
             }
             
         } catch (SQLException ex) {
@@ -142,7 +144,6 @@ public class Register extends javax.swing.JFrame {
         }
         }
         
-        this.dispose();
     }//GEN-LAST:event_btnRegActionPerformed
 
     public static void main(String args[]) {
