@@ -1,5 +1,6 @@
 package QuizHut;
 
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 
@@ -7,6 +8,7 @@ public class QuizHutMain extends javax.swing.JFrame {
 
     public QuizHutMain() {
         initComponents();
+        fillcmb();
     }
     
     public String name = null;
@@ -14,11 +16,26 @@ public class QuizHutMain extends javax.swing.JFrame {
     
     public QuizHutMain(String Name, String uidd) {
         initComponents();
+        fillcmb();
         name = Name;
         this.uid = Integer.parseInt(uidd);
         lblName.setText("Welcome : " + Name);
     }
 
+    public void fillcmb(){
+        try{
+            String query = "SELECT * FROM `quiz_name`";        
+            DatabaseCon dbcon = new DatabaseCon();
+            Statement mystm = dbcon.connection().createStatement();
+            ResultSet rs = mystm.executeQuery(query);
+            while(rs.next()){
+                cmbQuiz.addItem(rs.getString("name"));
+            }
+        }catch(SQLException e){
+            System.out.println(e.toString());
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -62,7 +79,6 @@ public class QuizHutMain extends javax.swing.JFrame {
             }
         });
 
-        cmbQuiz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HTML", "JAVA", "C#" }));
         cmbQuiz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbQuizActionPerformed(evt);
@@ -104,9 +120,9 @@ public class QuizHutMain extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnRegister)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnQuiz)
-                    .addComponent(cmbQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQuiz))
                 .addGap(18, 18, 18)
                 .addComponent(btnLB)
                 .addContainerGap(86, Short.MAX_VALUE))

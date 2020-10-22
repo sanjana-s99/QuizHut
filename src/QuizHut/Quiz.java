@@ -33,7 +33,6 @@ public class Quiz extends javax.swing.JFrame {
     
     public int getqcount(int quiz_id){
         int count = 0;
-        System.out.println(quiz_id);
         String query = "SELECT * FROM `quiz` WHERE `quiz_id` ="+quiz_id;        
         DatabaseCon dbcon = new DatabaseCon();
         try {
@@ -44,7 +43,6 @@ public class Quiz extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
-        System.out.println(count);
         return count;
     }
     

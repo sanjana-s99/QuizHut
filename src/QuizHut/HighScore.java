@@ -14,8 +14,22 @@ public class HighScore extends javax.swing.JFrame {
     public HighScore() {
         initComponents();
         dispData();
+        fillcmb();
     }
     
+        public void fillcmb(){
+        try{
+            String query = "SELECT * FROM `quiz_name`";        
+            Statement mystm = dbcon.connection().createStatement();
+            ResultSet rs = mystm.executeQuery(query);
+            while(rs.next()){
+                cmbQuiz.addItem(rs.getString("name"));
+            }
+        }catch(SQLException e){
+            System.out.println(e.toString());
+        }
+    }
+        
     private void dispData(){
         i=1;
         DefaultTableModel tbl = (DefaultTableModel)tblRslt.getModel();
@@ -63,7 +77,6 @@ public class HighScore extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cmbQuiz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HTML", "JAVA", "C#" }));
         cmbQuiz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbQuizActionPerformed(evt);
