@@ -78,9 +78,9 @@ public class Register extends javax.swing.JFrame {
     
     private void btnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegActionPerformed
         // TO register to system
-        String name = "Sapu";
-        String pass = "sapu";
-        String re_pass = "sapu";
+        String name = "Manuja";
+        String pass = "manuja";
+        String re_pass = "manuja";
                 
         if(name.equals(""))
         {

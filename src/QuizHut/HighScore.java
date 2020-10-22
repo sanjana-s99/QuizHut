@@ -13,10 +13,15 @@ public class HighScore extends javax.swing.JFrame {
 
     public HighScore() {
         initComponents();
+        dispData(1);
+    }
+    
+    public void dispData(int quid){
         i=1;
         DefaultTableModel tbl =  (DefaultTableModel)tblRslt.getModel();
         tbl.setRowCount(0);
-        String query = "SELECT * FROM `result` WHERE `quiz_id` = 1 order by score desc limit 10";
+        int quizid =  cmbQuiz.getSelectedIndex()+1;
+        String query = "SELECT * FROM `result` WHERE `quiz_id` ="+quizid+" order by score desc limit 10";
         try {
             Statement mystm = dbcon.connection().createStatement();
             ResultSet rs = mystm.executeQuery(query);
@@ -106,35 +111,16 @@ public class HighScore extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(cmbQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbQuizActionPerformed
-        i=1;
-        DefaultTableModel tbl =  (DefaultTableModel)tblRslt.getModel();
-        tbl.setRowCount(0);
-        int quizid =  cmbQuiz.getSelectedIndex()+1;
-        String query = "SELECT * FROM `result` WHERE `quiz_id` ="+quizid+" order by score desc limit 10";
-        try {
-            Statement mystm = dbcon.connection().createStatement();
-            ResultSet rs = mystm.executeQuery(query);
-            while(rs.next()){
-                uid = rs.getInt("uid");                
-                name = getName(uid);
-                score = rs.getString("score");
-                
-                //store data in array and put it on table
-                String[] tbdata = {String.valueOf(i),name,score};
-                tbl.addRow(tbdata);
-                i++;
-            }
-        }catch(SQLException e){
-            System.out.println(e.toString());
-        }
+        int qid = cmbQuiz.getSelectedIndex()+1;
+        dispData(qid);
     }//GEN-LAST:event_cmbQuizActionPerformed
 
     /**
