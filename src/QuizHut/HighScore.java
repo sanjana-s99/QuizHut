@@ -13,12 +13,12 @@ public class HighScore extends javax.swing.JFrame {
 
     public HighScore() {
         initComponents();
-        dispData(1);
+        dispData();
     }
     
-    public void dispData(int quid){
+    private void dispData(){
         i=1;
-        DefaultTableModel tbl =  (DefaultTableModel)tblRslt.getModel();
+        DefaultTableModel tbl = (DefaultTableModel)tblRslt.getModel();
         tbl.setRowCount(0);
         int quizid =  cmbQuiz.getSelectedIndex()+1;
         String query = "SELECT * FROM `result` WHERE `quiz_id` ="+quizid+" order by score desc limit 10";
@@ -63,7 +63,7 @@ public class HighScore extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cmbQuiz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quiz 1", "Quiz 2", "Quiz 3" }));
+        cmbQuiz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HTML", "JAVA", "C#" }));
         cmbQuiz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbQuizActionPerformed(evt);
@@ -119,8 +119,7 @@ public class HighScore extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbQuizActionPerformed
-        int qid = cmbQuiz.getSelectedIndex()+1;
-        dispData(qid);
+        dispData();
     }//GEN-LAST:event_cmbQuizActionPerformed
 
     /**

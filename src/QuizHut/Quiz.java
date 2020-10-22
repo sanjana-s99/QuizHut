@@ -10,15 +10,16 @@ public class Quiz extends javax.swing.JFrame {
     SaveUserData save = new SaveUserData();
     
     Timer timer;
-    int qNo=1, ans = 0, Sec = 60, correct = 0, wrong = 0, skip = 0, uid = 0;
+    int qNo=1, ans = 0, Sec = 60, correct = 0, wrong = 0, skip = 0, uid = 0, qid;
     String[] qns = new String[7];
     
     public Quiz() {
         initComponents();
     }
 
-    public void setquestion(int qnoo){
-        qns = quiz.getquestion(qnoo);
+    public void setquestion(int qnoo, int qidd){
+        this.qid = qidd;
+        qns = quiz.getquestion(qnoo,qid);
         lblQno.setText("Question : " + qns[0]);
         lblQuestion.setText(qns[1]);
         radAns1.setText(qns[2]);
@@ -27,11 +28,11 @@ public class Quiz extends javax.swing.JFrame {
         radAns4.setText(qns[5]);
     }
     
-    public Quiz(String name, int uidd) {
+    public Quiz(String name, int uidd, int qid) {
         initComponents();
         this.uid = uidd;
         lblName.setText("Welcome : " + name);
-        setquestion(qNo);
+        setquestion(qNo,qid);
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,18 +44,14 @@ public class Quiz extends javax.swing.JFrame {
                     timer.stop();
                     if(ans==Integer. parseInt(qns[6]))
                         correct++;
-                    else if(ans==0)
-                        skip++;
-                    else
-                        wrong++;
                     if(qNo==3){
-                        save.saveRslt(uid,correct, wrong, skip);
+                        save.saveRslt(uid,correct,qid);
                         dispose();
                         new QuizHutMain().setVisible(true);
                     }
                     qNo++;
                     buttonGroup1.clearSelection();
-                    setquestion(qNo);
+                    setquestion(qNo,qid);
                     Sec=60;
                     timer.restart();
                 }
@@ -140,44 +137,45 @@ public class Quiz extends javax.swing.JFrame {
                             .addComponent(radAns3)
                             .addComponent(radAns2)
                             .addComponent(radAns1)
-                            .addComponent(lblName)
-                            .addComponent(lblQuestion)))
+                            .addComponent(lblQuestion)
+                            .addComponent(lblName)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addComponent(btnSubmit)))
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSec)
+                .addGap(23, 23, 23))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblQno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSec)
-                .addGap(95, 95, 95))
+                .addGap(95, 373, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblName)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblSec))
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblName)
                         .addGap(18, 18, 18)
-                        .addComponent(lblQno)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblQuestion)
-                .addGap(18, 18, 18)
-                .addComponent(radAns1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(radAns2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(radAns3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(radAns4)
-                .addGap(18, 18, 18)
-                .addComponent(btnSubmit)
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(lblQno)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblQuestion)
+                        .addGap(18, 18, 18)
+                        .addComponent(radAns1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(radAns2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(radAns3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(radAns4)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSubmit)
+                        .addGap(0, 7, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblSec)))
+                .addContainerGap())
         );
 
         pack();
@@ -187,18 +185,14 @@ public class Quiz extends javax.swing.JFrame {
         timer.stop();
         if(ans==Integer. parseInt(qns[6]))
             correct++;
-        else if(ans==0)
-            skip++;
-        else
-            wrong++;
         if(qNo==3){
-            save.saveRslt(uid,correct, wrong, skip);
+            save.saveRslt(uid,correct, qid);
             this.dispose();
             new QuizHutMain().setVisible(true);
         }
         qNo++;
         buttonGroup1.clearSelection();
-        setquestion(qNo);
+        setquestion(qNo,qid);
         Sec=60;
         timer.restart();
     }//GEN-LAST:event_btnSubmitActionPerformed
