@@ -48,8 +48,9 @@ public class Login extends javax.swing.JFrame {
         // TO Login to system
         PreparedStatement ps;
         ResultSet rs;
-        String uname = "Sapu";
-        String pass = "sapu";
+        String uid = null;
+        String uname = "Sanjana";
+        String pass = "sanjana";
         
         try{
         //Encrypt Password to check
@@ -59,7 +60,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e.toString());
         }
         
-        String query = "SELECT * FROM `user` WHERE `Name` =? AND `Pass` =?";        
+        String query = "SELECT * FROM `user` WHERE `Name` =? AND `Pass` =?";  
         DatabaseCon dbcon = new DatabaseCon();
         try {
             ps = dbcon.connection().prepareStatement(query);
@@ -70,8 +71,11 @@ public class Login extends javax.swing.JFrame {
             rs = ps.executeQuery();
             if(rs.next())
             {
+                uid = rs.getString("uid");
+            
                 this.dispose();
-                new QuizHutMain(uname).setVisible(true);
+                if(uid!=null)
+                    new QuizHutMain(uname,uid).setVisible(true);
             }
             else{
                     JOptionPane.showMessageDialog(null, "Incorrect Username Or Password", "Login Failed", 2);

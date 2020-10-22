@@ -1,5 +1,7 @@
 package QuizHut;
 
+import javax.swing.JOptionPane;
+
 
 public class QuizHutMain extends javax.swing.JFrame {
 
@@ -7,11 +9,13 @@ public class QuizHutMain extends javax.swing.JFrame {
         initComponents();
     }
     
-    public String name;
+    public String name = null;
+    public int uid = 0;
     
-    public QuizHutMain(String Name) {
+    public QuizHutMain(String Name, String uidd) {
         initComponents();
         name = Name;
+        this.uid = Integer.parseInt(uidd);
         lblName.setText("Welcome : " + Name);
     }
 
@@ -97,8 +101,14 @@ public class QuizHutMain extends javax.swing.JFrame {
 
     private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
         // Open Quiz
-        this.dispose();
-        new Quiz(name).setVisible(true);
+        
+        if(name==null){
+            JOptionPane.showMessageDialog(rootPane, "Please Login First....");
+        }
+        else{
+            this.dispose();
+            new Quiz(name,uid).setVisible(true);
+        }
     }//GEN-LAST:event_btnQuizActionPerformed
 
     public static void main(String args[]) {

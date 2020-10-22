@@ -7,10 +7,12 @@ import javax.swing.*;
 public class Quiz extends javax.swing.JFrame {
     
     QuizQuistion quiz = new QuizQuistion();
-
+    SaveUserData save = new SaveUserData();
+    
     Timer timer;
-    int qNo=1, ans = 0, Sec = 60, correct = 0, wrong = 0, skip = 0;
+    int qNo=1, ans = 0, Sec = 60, correct = 0, wrong = 0, skip = 0, uid = 0;
     String[] qns = new String[7];
+    
     public Quiz() {
         initComponents();
     }
@@ -25,8 +27,9 @@ public class Quiz extends javax.swing.JFrame {
         radAns4.setText(qns[5]);
     }
     
-    public Quiz(String name) {
+    public Quiz(String name, int uidd) {
         initComponents();
+        this.uid = uidd;
         lblName.setText("Welcome : " + name);
         setquestion(qNo);
         timer = new Timer(1000, new ActionListener() {
@@ -44,17 +47,16 @@ public class Quiz extends javax.swing.JFrame {
                         skip++;
                     else
                         wrong++;
-                    if(qNo==2){
-                        JOptionPane.showMessageDialog(rootPane, "Correct = "+correct+" Wrong = "+wrong+" Skipped = "+skip);
+                    if(qNo==3){
+                        save.saveRslt(uid,correct, wrong, skip);
                         dispose();
                         new QuizHutMain().setVisible(true);
                     }
                     qNo++;
+                    buttonGroup1.clearSelection();
                     setquestion(qNo);
                     Sec=60;
                     timer.restart();
-                    System.out.println(ans);
-                    //quiz.setans(qNo, ans);
                 }
             }
         });
@@ -189,16 +191,16 @@ public class Quiz extends javax.swing.JFrame {
             skip++;
         else
             wrong++;
-        if(qNo==2){
-            JOptionPane.showMessageDialog(rootPane, "Correct = "+correct+" Wrong = "+wrong+" Skipped = "+skip);
+        if(qNo==3){
+            save.saveRslt(uid,correct, wrong, skip);
             this.dispose();
             new QuizHutMain().setVisible(true);
         }
         qNo++;
+        buttonGroup1.clearSelection();
         setquestion(qNo);
         Sec=60;
         timer.restart();
-        System.out.println(ans);
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void radAns1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAns1ActionPerformed
