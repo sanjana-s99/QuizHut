@@ -18,16 +18,14 @@ public class QuizQuistion {
             Statement mystm = dbcon.connection().createStatement();
             ResultSet rs = mystm.executeQuery(query);
             while(rs.next()){
-            qna[0] = rs.getString("qid");
-            qna[1] = rs.getString("question");
-            qna[2] = rs.getString("ans1");
-            qna[3] = rs.getString("ans2");
-            qna[4] = rs.getString("ans3");
-            qna[5] = rs.getString("ans4");
-            qna[6] = rs.getString("correctans");
-            }
-            
-            
+                qna[0] = rs.getString("qid");
+                qna[1] = rs.getString("question");
+                qna[2] = rs.getString("ans1");
+                qna[3] = rs.getString("ans2");
+                qna[4] = rs.getString("ans3");
+                qna[5] = rs.getString("ans4");
+                qna[6] = rs.getString("correctans");
+            }            
         } catch (SQLException ex) {
             System.out.println(ex.toString());
         }
