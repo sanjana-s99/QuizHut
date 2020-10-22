@@ -49,8 +49,8 @@ public class Login extends javax.swing.JFrame {
         PreparedStatement ps;
         ResultSet rs;
         String uid = null;
-        String uname = "Sapu";
-        String pass = "sapu";
+        String uname = "Sanjana";
+        String pass = "sanjana";
         
         try{
         //Encrypt Password to check

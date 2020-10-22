@@ -10,9 +10,9 @@ public class QuizQuistion {
         this.ans = ans;
     }
     
-    public String[] getquestion(int qno, int qid){
+    public String[] getquestion(int qno, int quiz_id){
         String[] qna = new String[7];
-        String query = "SELECT * FROM `"+qid+"` WHERE `qid` ="+qno;        
+        String query = "SELECT * FROM `quiz` WHERE `qid` ="+qno+" AND `quiz_id` ="+quiz_id;        
         DatabaseCon dbcon = new DatabaseCon();
         try {
             Statement mystm = dbcon.connection().createStatement();
