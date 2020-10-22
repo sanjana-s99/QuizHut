@@ -2,9 +2,6 @@ package QuizHut;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.*;
 
 public class Quiz extends javax.swing.JFrame {
@@ -31,23 +28,6 @@ public class Quiz extends javax.swing.JFrame {
         radAns4.setText(qns[5]);
     }
     
-    public int getqcount(int quiz_id){
-        int count = 0;
-        System.out.println(quiz_id);
-        String query = "SELECT * FROM `quiz` WHERE `quiz_id` ="+quiz_id;        
-        DatabaseCon dbcon = new DatabaseCon();
-        try {
-            Statement mystm = dbcon.connection().createStatement();
-            ResultSet rs = mystm.executeQuery(query);
-            while(rs.next())
-                count = count+1;          
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-        }
-        System.out.println(count);
-        return count;
-    }
-    
     public Quiz(String name, int uidd, int qid) {
         initComponents();
         this.uid = uidd;
@@ -64,7 +44,7 @@ public class Quiz extends javax.swing.JFrame {
                     timer.stop();
                     if(ans==Integer. parseInt(qns[6]))
                         correct++;
-                    if(qNo==getqcount(qid)){
+                    if(qNo==3){
                         save.saveRslt(uid,correct,qid);
                         dispose();
                         new QuizHutMain().setVisible(true);
@@ -205,7 +185,7 @@ public class Quiz extends javax.swing.JFrame {
         timer.stop();
         if(ans==Integer. parseInt(qns[6]))
             correct++;
-        if(qNo==getqcount(qid)){
+        if(qNo==3){
             save.saveRslt(uid,correct, qid);
             this.dispose();
             new QuizHutMain().setVisible(true);
