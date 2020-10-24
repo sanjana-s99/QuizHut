@@ -8,7 +8,7 @@ public class DatabaseCon {
         Connection con;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3300/quizhut";
+            String url = "jdbc:mysql://localhost:3306/quizhut";
             String uname = "root";
             String pass = "";
             con = DriverManager.getConnection(url, uname, pass);
