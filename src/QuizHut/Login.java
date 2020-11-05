@@ -1,7 +1,6 @@
 package QuizHut;
 
-import java.sql.*;
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
@@ -46,44 +45,27 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TO Login to system
-        PreparedStatement ps;
-        ResultSet rs;
         String uid = null;
         String uname = "Sanjana";
         String pass = "sanjana";
         
+        //create login object
+        SystemLogin slog = new SystemLogin();
         try{
-        //Encrypt Password to check
-        EncNDec enc = new EncNDec();
-        pass = enc.encrypt(pass);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, e.toString());
+            //asign returned value to uid
+            uid = slog.login(pass, uname);
+        }catch(Exception ex){
+                        JOptionPane.showMessageDialog(null, ex.toString());
+
+        }finally{
+            //if uid setted loged into system
+            if(uid!=null){
+                new QuizHutMain(uname,uid).setVisible(true);
+                this.dispose();
+            }
         }
         
-        String query = "SELECT * FROM `user` WHERE `Name` =? AND `Pass` =?";  
-        DatabaseCon dbcon = new DatabaseCon();
-        try {
-            ps = dbcon.connection().prepareStatement(query);
-            
-            ps.setString(1, uname);
-            ps.setString(2, pass);
-            
-            rs = ps.executeQuery();
-            if(rs.next())
-            {
-                uid = rs.getString("uid");
-            
-                this.dispose();
-                if(uid!=null)
-                    new QuizHutMain(uname,uid).setVisible(true);
-            }
-            else{
-                    JOptionPane.showMessageDialog(null, "Incorrect Username Or Password", "Login Failed", 2);
-                }
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.toString());
-        }
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     public static void main(String args[]) {

@@ -3,13 +3,7 @@ package QuizHut;
 import java.sql.*;
 
 public class QuizQuistion {
-    public int no, ans;
-    
-    public void setans(int no,int ans){
-        this.no = no;
-        this.ans = ans;
-    }
-    
+//return string array with required data    
     public String[] getquestion(int qno, int quiz_id){
         String[] qna = new String[7];
         String query = "SELECT * FROM `quiz` WHERE `qid` ="+qno+" AND `quiz_id` ="+quiz_id;        

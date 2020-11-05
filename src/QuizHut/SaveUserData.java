@@ -36,28 +36,26 @@ public class SaveUserData {
     }
     
     public void saveRslt(int uid, int correct, int qid){
-        System.out.println("User : "+ uid);
-        System.out.println("Correct : "+ correct);
-        System.out.println("qid : "+ qid);
+        //add updated score after first time
         if(checkquiz(uid, qid)){
             PreparedStatement ps;
             String query = "UPDATE `result` SET `score`= ? WHERE `uid` = ? AND `quiz_id` = ?";
             
              try {
                 ps = dbcon.connection().prepareStatement(query);
-                ps.setString(1, String.valueOf(correct*10));
+                ps.setString(1, String.valueOf(correct*5));
                 ps.setString(2, String.valueOf(uid));
                 ps.setString(3, String.valueOf(qid));
 
                 if(ps.executeUpdate() > 0)
                 {
-                    JOptionPane.showMessageDialog(null, "Quiz Sucessfully Finished");
+                    JOptionPane.showMessageDialog(null, "Quiz Sucessfully Finished with " + correct + " Correct Answers!!!" );
                 }
 
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex.toString());
             }
-            
+        //add user score in first time
         }else{
             PreparedStatement ps;
             String query = "INSERT INTO `result` (`uid`,`quiz_id`,`score`) VALUES (?,?,?)";
@@ -70,7 +68,7 @@ public class SaveUserData {
 
                 if(ps.executeUpdate() > 0)
                 {
-                    JOptionPane.showMessageDialog(null, "Quiz Sucessfully Finished");
+                    JOptionPane.showMessageDialog(null, "Quiz Sucessfully Finished with " + correct + " Correct Answers!!!" );
                 }
 
             } catch (SQLException ex) {

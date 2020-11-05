@@ -8,6 +8,7 @@ public class QuizHutMain extends javax.swing.JFrame {
 
     public QuizHutMain() {
         initComponents();
+        //populate combo box
         fillcmb();
     }
     
@@ -22,6 +23,7 @@ public class QuizHutMain extends javax.swing.JFrame {
         lblName.setText("Welcome : " + Name);
     }
 
+    //get quizes from database
     public void fillcmb(){
         try{
             String query = "SELECT * FROM `quiz_name`";        
@@ -150,8 +152,12 @@ public class QuizHutMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Please Login First....");
         }
         else{
-            this.dispose();
-            new Quiz(name,uid,quiz).setVisible(true);
+            try{
+                new Quiz(name,uid,quiz).setVisible(true);
+                this.dispose();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "This Quiz Not Available Yet.....");
+            }
         }
     }//GEN-LAST:event_btnQuizActionPerformed
 

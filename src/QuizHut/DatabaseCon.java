@@ -4,6 +4,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class DatabaseCon {
+    //return connection
     public Connection connection(){
         Connection con;
         try {

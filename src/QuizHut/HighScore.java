@@ -14,9 +14,11 @@ public class HighScore extends javax.swing.JFrame {
     public HighScore() {
         initComponents();
         dispData();
+        //fill combo box with loading...
         fillcmb();
     }
     
+    //get data for combo box
         public void fillcmb(){
         try{
             String query = "SELECT * FROM `quiz_name`";        
@@ -30,6 +32,7 @@ public class HighScore extends javax.swing.JFrame {
         }
     }
         
+        //display high score users in table
     private void dispData(){
         i=1;
         DefaultTableModel tbl = (DefaultTableModel)tblRslt.getModel();
@@ -54,6 +57,7 @@ public class HighScore extends javax.swing.JFrame {
         }
     }
     
+    //get username from user id and return it
     public String getName(int uid){
         String query1 = "SELECT * FROM `user` WHERE `uid` ="+uid;        
             try {

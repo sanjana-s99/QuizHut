@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Collections;
+import java.util.Stack;
 import javax.swing.*;
 
 public class Quiz extends javax.swing.JFrame {
@@ -12,25 +14,69 @@ public class Quiz extends javax.swing.JFrame {
     QuizQuistion quiz = new QuizQuistion();
     SaveUserData save = new SaveUserData();
     
+    //stack for shaffule questions un quiz
+    private Stack<Integer> numbers = new Stack<>();
+    
     Timer timer;
-    int qNo=1, ans = 0, Sec = 60, correct = 0, wrong = 0, skip = 0, uid = 0, qid;
+    int qNo=1, ans = 0, Sec = 60, correct = 0, wrong = 0, skip = 0, uid = 0, qid, qend=0, qcount;
     String[] qns = new String[7];
     
     public Quiz() {
         initComponents();
     }
+    
+    public Quiz(String name, int uidd, int qid){
+        initComponents();
+        this.uid = uidd;
+        lblName.setText("Welcome : " + name);
+        qcount = getqcount(qid);
+        loadNumbers();
+        //set question a with poping qestion number
+        setquestion(nextInt(),qid);
+        //set timer to count 60seconds
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(Sec>0){
+                    Sec--;
+                }
+                //display timer
+                lblSec.setText(""+Sec);
+                if(Sec==0){
+                    //after 60sec get next question
+                    question();
+                }
+            }
+        });
+        timer.start();
+    }
 
+    //to get quiestion numbers and shuffle
+    private void loadNumbers(){
+         for (int i=1;i<=qcount;i++){
+                numbers.push(i);
+            }
+         Collections.shuffle(numbers);
+    }
+    public int nextInt(){
+        if (numbers.empty()) loadNumbers();
+        return numbers.pop();
+    }
+    
+    //set question using questin no. and quiz_id
     public void setquestion(int qnoo, int qidd){
         this.qid = qidd;
         qns = quiz.getquestion(qnoo,qid);
-        lblQno.setText("Question : " + qns[0]);
+        lblQno.setText("Question : " + (qend+1));
         lblQuestion.setText(qns[1]);
         radAns1.setText(qns[2]);
         radAns2.setText(qns[3]);
         radAns3.setText(qns[4]);
         radAns4.setText(qns[5]);
+        qend++;
     }
     
+    //get question count from database
     public int getqcount(int quiz_id){
         int count = 0;
         String query = "SELECT * FROM `quiz` WHERE `quiz_id` ="+quiz_id;        
@@ -46,36 +92,28 @@ public class Quiz extends javax.swing.JFrame {
         return count;
     }
     
-    public Quiz(String name, int uidd, int qid) {
-        initComponents();
-        this.uid = uidd;
-        lblName.setText("Welcome : " + name);
-        setquestion(qNo,qid);
-        timer = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(Sec>0){
-                    Sec--;
-                }
-                lblSec.setText(""+Sec);
-                if(Sec==0){
-                    timer.stop();
-                    if(ans==Integer. parseInt(qns[6]))
-                        correct++;
-                    if(qNo==getqcount(qid)){
-                        save.saveRslt(uid,correct,qid);
-                        dispose();
-                        new QuizHutMain().setVisible(true);
-                    }
-                    qNo++;
-                    buttonGroup1.clearSelection();
-                    setquestion(qNo,qid);
-                    Sec=60;
-                    timer.restart();
-                }
-            }
-        });
-        timer.start();
+    //after time out or submition button clicked
+    public void question(){
+        //stop timer
+        timer.stop();
+        //count corrct answers
+        if(ans==Integer. parseInt(qns[6]))
+            correct++;
+        //check if quiz reach end
+        if(qend==getqcount(qid) || qend==20){
+            //save resault in database
+            save.saveRslt(uid,correct,qid);
+            dispose();
+            new QuizHutMain().setVisible(true);
+        }
+        //clear radio button selectino
+        buttonGroup1.clearSelection();
+        //set next question
+        setquestion(nextInt(),qid);
+        //reset timer
+        Sec=60;
+        //restart timer again
+        timer.restart();
     }
 
     @SuppressWarnings("unchecked")
@@ -200,19 +238,8 @@ public class Quiz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        timer.stop();
-        if(ans==Integer. parseInt(qns[6]))
-            correct++;
-        if(qNo==getqcount(qid)){
-            save.saveRslt(uid,correct, qid);
-            this.dispose();
-            new QuizHutMain().setVisible(true);
-        }
-        qNo++;
-        buttonGroup1.clearSelection();
-        setquestion(qNo,qid);
-        Sec=60;
-        timer.restart();
+        //call questin function to submit answer
+        question();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void radAns1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAns1ActionPerformed
