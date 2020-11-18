@@ -27,8 +27,8 @@ public class Quiz extends javax.swing.JFrame {
     
     public Quiz(String name, int uidd, int qid){
         initComponents();
+        lblname.setText("Welcome : " + name);
         this.uid = uidd;
-        lblName.setText("Welcome : " + name);
         qcount = getqcount(qid);
         loadNumbers();
         //set question a with poping qestion number
@@ -121,7 +121,7 @@ public class Quiz extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        lblName = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         lblQuestion = new javax.swing.JLabel();
         radAns1 = new javax.swing.JRadioButton();
         radAns2 = new javax.swing.JRadioButton();
@@ -130,14 +130,20 @@ public class Quiz extends javax.swing.JFrame {
         btnSubmit = new javax.swing.JButton();
         lblSec = new javax.swing.JLabel();
         lblQno = new javax.swing.JLabel();
+        lblSelectOne = new javax.swing.JLabel();
+        lblname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblName.setText("Welcome : ");
+        jPanel1.setBackground(new java.awt.Color(12, 11, 22));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
+        lblQuestion.setForeground(new java.awt.Color(255, 255, 255));
         lblQuestion.setText("Question");
 
+        radAns1.setBackground(new java.awt.Color(32, 29, 58));
         buttonGroup1.add(radAns1);
+        radAns1.setForeground(new java.awt.Color(255, 255, 255));
         radAns1.setText("Answer 1");
         radAns1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +151,9 @@ public class Quiz extends javax.swing.JFrame {
             }
         });
 
+        radAns2.setBackground(new java.awt.Color(32, 29, 58));
         buttonGroup1.add(radAns2);
+        radAns2.setForeground(new java.awt.Color(255, 255, 255));
         radAns2.setText("Answer 2");
         radAns2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +161,9 @@ public class Quiz extends javax.swing.JFrame {
             }
         });
 
+        radAns3.setBackground(new java.awt.Color(32, 29, 58));
         buttonGroup1.add(radAns3);
+        radAns3.setForeground(new java.awt.Color(255, 255, 255));
         radAns3.setText("Answer 3");
         radAns3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +171,9 @@ public class Quiz extends javax.swing.JFrame {
             }
         });
 
+        radAns4.setBackground(new java.awt.Color(32, 29, 58));
         buttonGroup1.add(radAns4);
+        radAns4.setForeground(new java.awt.Color(255, 255, 255));
         radAns4.setText("Answer 4");
         radAns4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,6 +181,8 @@ public class Quiz extends javax.swing.JFrame {
             }
         });
 
+        btnSubmit.setBackground(new java.awt.Color(120, 109, 188));
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,62 +190,74 @@ public class Quiz extends javax.swing.JFrame {
             }
         });
 
+        lblSec.setForeground(new java.awt.Color(255, 255, 255));
         lblSec.setText("60");
 
+        lblQno.setForeground(new java.awt.Color(255, 255, 255));
         lblQno.setText("Question : ");
+
+        lblSelectOne.setForeground(new java.awt.Color(255, 255, 255));
+        lblSelectOne.setText("Select One :");
+
+        lblname.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(150, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblSelectOne)
+                    .addComponent(lblQno)
+                    .addComponent(lblQuestion)
+                    .addComponent(radAns1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                    .addComponent(radAns2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(radAns3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(radAns4, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                    .addComponent(lblSec)
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblname)
+                .addGap(105, 105, 105))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblname)
+                .addGap(29, 29, 29)
+                .addComponent(lblQno)
+                .addGap(18, 18, 18)
+                .addComponent(lblQuestion)
+                .addGap(106, 106, 106)
+                .addComponent(lblSelectOne)
+                .addGap(18, 18, 18)
+                .addComponent(radAns1)
+                .addGap(18, 18, 18)
+                .addComponent(radAns2)
+                .addGap(18, 18, 18)
+                .addComponent(radAns3)
+                .addGap(18, 18, 18)
+                .addComponent(radAns4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(lblSec)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(radAns4)
-                            .addComponent(radAns3)
-                            .addComponent(radAns2)
-                            .addComponent(radAns1)
-                            .addComponent(lblQuestion)
-                            .addComponent(lblName)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(btnSubmit)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSec)
-                .addGap(23, 23, 23))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblQno)
-                .addGap(95, 373, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblName)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblQno)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblQuestion)
-                        .addGap(18, 18, 18)
-                        .addComponent(radAns1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(radAns2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(radAns3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(radAns4)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSubmit)
-                        .addGap(0, 7, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblSec)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
         );
 
         pack();
@@ -281,6 +307,7 @@ public class Quiz extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -293,10 +320,12 @@ public class Quiz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel lblName;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblQno;
     private javax.swing.JLabel lblQuestion;
     private javax.swing.JLabel lblSec;
+    private javax.swing.JLabel lblSelectOne;
+    private javax.swing.JLabel lblname;
     private javax.swing.JRadioButton radAns1;
     private javax.swing.JRadioButton radAns2;
     private javax.swing.JRadioButton radAns3;
