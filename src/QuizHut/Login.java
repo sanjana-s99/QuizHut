@@ -27,7 +27,7 @@ public class Login extends javax.swing.JFrame {
         PNLlogreg.setPreferredSize(new java.awt.Dimension(800, 600));
 
         USERNAME.setForeground(new java.awt.Color(255, 255, 255));
-        USERNAME.setText("EMAIL");
+        USERNAME.setText("USERNAME");
         USERNAME.setToolTipText("");
 
         TXTFuname.setBackground(new java.awt.Color(33, 30, 51));

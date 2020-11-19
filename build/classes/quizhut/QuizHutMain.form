@@ -56,24 +56,36 @@
                   <Component id="lblName" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< Updated upstream
                       <Group type="102" attributes="0">
                           <Component id="btnLogin" min="-2" pref="74" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnRegister" min="-2" max="-2" attributes="0"/>
                       </Group>
+=======
+                      <Component id="lblName" min="-2" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
                       <Component id="BUTlogout" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="btnLB" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="btnQuiz" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="cmbQuiz" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="SELECT_MODULE" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< Updated upstream
                   <EmptySpace pref="112" max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="338" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+<<<<<<< Updated upstream
+=======
+                  <EmptySpace pref="147" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
                   <Component id="lblName" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="SELECT_MODULE" min="-2" max="-2" attributes="0"/>
@@ -81,6 +93,7 @@
                   <Component id="cmbQuiz" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnQuiz" min="-2" pref="30" max="-2" attributes="0"/>
+<<<<<<< Updated upstream
                   <EmptySpace pref="58" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnLogin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -91,27 +104,18 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="BUTlogout" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="btnLB" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="BUTlogout" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace pref="153" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnLogin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Login"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnRegister">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Register"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="SELECT_MODULE">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
