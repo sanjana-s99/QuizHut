@@ -25,6 +25,7 @@ public class Register extends javax.swing.JFrame {
         TXTFpass1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("QUIZHUT-REGISTER");
 
         PNLlogreg.setBackground(new java.awt.Color(12, 11, 22));
         PNLlogreg.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -56,7 +57,7 @@ public class Register extends javax.swing.JFrame {
         BUTreg.setBackground(new java.awt.Color(120, 109, 188));
         BUTreg.setForeground(new java.awt.Color(255, 255, 255));
         BUTreg.setText("REGISTER");
-        BUTreg.setToolTipText("");
+        BUTreg.setToolTipText("Click To Register");
         BUTreg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BUTregActionPerformed(evt);
@@ -66,7 +67,7 @@ public class Register extends javax.swing.JFrame {
         BUTreg1.setBackground(new java.awt.Color(120, 109, 188));
         BUTreg1.setForeground(new java.awt.Color(255, 255, 255));
         BUTreg1.setText("LOGIN");
-        BUTreg1.setToolTipText("");
+        BUTreg1.setToolTipText("Back To Login");
         BUTreg1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BUTreg1ActionPerformed(evt);
@@ -96,7 +97,6 @@ public class Register extends javax.swing.JFrame {
             .addGroup(PNLlogregLayout.createSequentialGroup()
                 .addContainerGap(316, Short.MAX_VALUE)
                 .addGroup(PNLlogregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(OR)
                     .addComponent(BUTreg1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PNLlogregLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                         .addComponent(TXTFpass, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -107,7 +107,10 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(TXTFpass1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PASSWORD1)))
                     .addComponent(BUTreg, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PASSWORD))
+                    .addComponent(PASSWORD)
+                    .addGroup(PNLlogregLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(OR)))
                 .addContainerGap(324, Short.MAX_VALUE))
         );
         PNLlogregLayout.setVerticalGroup(

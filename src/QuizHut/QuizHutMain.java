@@ -51,6 +51,7 @@ public class QuizHutMain extends javax.swing.JFrame {
         lblName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("QUIZHUT-HOME");
 
         PNLhome.setBackground(new java.awt.Color(12, 11, 22));
 
@@ -61,6 +62,11 @@ public class QuizHutMain extends javax.swing.JFrame {
         cmbQuiz.setBackground(new java.awt.Color(33, 30, 51));
         cmbQuiz.setEditable(true);
         cmbQuiz.setForeground(new java.awt.Color(255, 255, 255));
+        cmbQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbQuizActionPerformed(evt);
+            }
+        });
 
         btnQuiz.setBackground(new java.awt.Color(120, 109, 188));
         btnQuiz.setForeground(new java.awt.Color(255, 255, 255));
@@ -75,7 +81,7 @@ public class QuizHutMain extends javax.swing.JFrame {
         btnLB.setBackground(new java.awt.Color(120, 109, 188));
         btnLB.setForeground(new java.awt.Color(255, 255, 255));
         btnLB.setText("LEADERBOARD");
-        btnLB.setToolTipText("");
+        btnLB.setToolTipText("Click To Open Leaderboard");
         btnLB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLBActionPerformed(evt);
@@ -85,7 +91,7 @@ public class QuizHutMain extends javax.swing.JFrame {
         BUTlogout.setBackground(new java.awt.Color(188, 109, 109));
         BUTlogout.setForeground(new java.awt.Color(255, 255, 255));
         BUTlogout.setText("LOGOUT");
-        BUTlogout.setToolTipText("");
+        BUTlogout.setToolTipText("Click To Logout From System");
         BUTlogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BUTlogoutActionPerformed(evt);
@@ -179,6 +185,10 @@ public class QuizHutMain extends javax.swing.JFrame {
         this.dispose();
         new Login().setVisible(true);
     }//GEN-LAST:event_BUTlogoutActionPerformed
+
+    private void cmbQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbQuizActionPerformed
+        btnQuiz.setToolTipText("Start Quiz "+cmbQuiz.getSelectedItem().toString());
+    }//GEN-LAST:event_cmbQuizActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

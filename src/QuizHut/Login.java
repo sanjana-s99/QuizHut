@@ -22,6 +22,7 @@ public class Login extends javax.swing.JFrame {
         BUTreg = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("QUIZHUT- LOGIN");
 
         PNLlogreg.setBackground(new java.awt.Color(12, 11, 22));
         PNLlogreg.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -53,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         BUTlogin.setBackground(new java.awt.Color(120, 109, 188));
         BUTlogin.setForeground(new java.awt.Color(255, 255, 255));
         BUTlogin.setText("LOGIN");
-        BUTlogin.setToolTipText("");
+        BUTlogin.setToolTipText("Click To Login");
         BUTlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BUTloginActionPerformed(evt);
@@ -67,7 +68,7 @@ public class Login extends javax.swing.JFrame {
         BUTreg.setBackground(new java.awt.Color(120, 109, 188));
         BUTreg.setForeground(new java.awt.Color(255, 255, 255));
         BUTreg.setText("REGISTER");
-        BUTreg.setToolTipText("");
+        BUTreg.setToolTipText("Go To Registration");
         BUTreg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BUTregActionPerformed(evt);

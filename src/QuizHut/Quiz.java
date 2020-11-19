@@ -137,6 +137,7 @@ public class Quiz extends javax.swing.JFrame {
         lblname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("QUIZHUT-QUIZ");
 
         jPanel1.setBackground(new java.awt.Color(12, 11, 22));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -187,12 +188,14 @@ public class Quiz extends javax.swing.JFrame {
         btnSubmit.setBackground(new java.awt.Color(120, 109, 188));
         btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setText("Submit");
+        btnSubmit.setToolTipText("Submit And Go To Next Question");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
 
+        lblSec.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblSec.setForeground(new java.awt.Color(255, 255, 255));
         lblSec.setText("60");
 
@@ -205,6 +208,7 @@ public class Quiz extends javax.swing.JFrame {
         BTNhome.setBackground(new java.awt.Color(120, 109, 188));
         BTNhome.setForeground(new java.awt.Color(255, 255, 255));
         BTNhome.setText("Back to home");
+        BTNhome.setToolTipText("Discard And Return");
         BTNhome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTNhomeActionPerformed(evt);

@@ -88,6 +88,7 @@ public class HighScore extends javax.swing.JFrame {
         BTNhome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("QUIZHUT-LEADERBOARD");
 
         jPanel1.setBackground(new java.awt.Color(12, 11, 22));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
