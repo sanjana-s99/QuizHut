@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package QuizHut;
 
 import java.sql.*;
@@ -62,12 +57,6 @@ public class SystemReg {
         
         else{
         
-            /*if(jDateChooser_BDATE.getDate() != null)
-            {
-                SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-                bdate = dateformat.format(jDateChooser_BDATE.getDate());
-            }*/
-
             try{
             //Encrypt Password
             EncNDec enc = new EncNDec();
@@ -83,14 +72,7 @@ public class SystemReg {
                 ps = dbcon.connection().prepareStatement(query);
                 ps.setString(1, name);
                 ps.setString(2, pass);
-               /* if(bdate != null)
-                {
-                 ps.setString(5, bdate);
-                }else{
-                    ps.setNull(5, 0);
-                }
-                ps.setString(6, address);
-                */
+                
                 if(ps.executeUpdate() > 0)
                 {
                     JOptionPane.showMessageDialog(null, "Register Successful");

@@ -19,6 +19,7 @@ public class Quiz extends javax.swing.JFrame {
     
     Timer timer;
     int qNo=1, ans = 0, Sec = 60, correct = 0, wrong = 0, skip = 0, uid = 0, qid, qend=0, qcount;
+    String toname;
     String[] qns = new String[7];
     
     public Quiz() {
@@ -28,6 +29,7 @@ public class Quiz extends javax.swing.JFrame {
     public Quiz(String name, int uidd, int qid){
         initComponents();
         lblname.setText("Welcome : " + name);
+        this.toname = name;
         this.uid = uidd;
         qcount = getqcount(qid);
         loadNumbers();
@@ -104,7 +106,7 @@ public class Quiz extends javax.swing.JFrame {
             //save resault in database
             save.saveRslt(uid,correct,qid);
             dispose();
-            new QuizHutMain().setVisible(true);
+            new QuizHutMain(toname,String.valueOf(uid)).setVisible(true);
         }
         //clear radio button selectino
         buttonGroup1.clearSelection();
@@ -298,8 +300,11 @@ public class Quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_radAns4ActionPerformed
 
     private void BTNhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNhomeActionPerformed
-        new QuizHutMain(toname,touid).setVisible(true);
-        this.dispose();
+        int opt = JOptionPane.showConfirmDialog(null, "Your Progress Will Discarded!!!", "Are You Sure?", JOptionPane.YES_NO_OPTION);
+        if(opt == 0){
+            new QuizHutMain(toname,String.valueOf(uid)).setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_BTNhomeActionPerformed
 
     public static void main(String args[]) {

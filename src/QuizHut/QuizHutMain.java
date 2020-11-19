@@ -43,8 +43,6 @@ public class QuizHutMain extends javax.swing.JFrame {
     private void initComponents() {
 
         PNLhome = new javax.swing.JPanel();
-        btnLogin = new javax.swing.JButton();
-        btnRegister = new javax.swing.JButton();
         SELECT_MODULE = new javax.swing.JLabel();
         cmbQuiz = new javax.swing.JComboBox<>();
         btnQuiz = new javax.swing.JButton();
@@ -55,20 +53,6 @@ public class QuizHutMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PNLhome.setBackground(new java.awt.Color(12, 11, 22));
-
-        btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
-
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
 
         SELECT_MODULE.setForeground(new java.awt.Color(255, 255, 255));
         SELECT_MODULE.setText("SELECT MODULE");
@@ -120,16 +104,12 @@ public class QuizHutMain extends javax.swing.JFrame {
                 .addContainerGap(303, Short.MAX_VALUE)
                 .addGroup(PNLhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblName)
-                    .addGroup(PNLhomeLayout.createSequentialGroup()
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRegister))
                     .addComponent(BUTlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLB, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SELECT_MODULE))
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
         PNLhomeLayout.setVerticalGroup(
             PNLhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,11 +122,7 @@ public class QuizHutMain extends javax.swing.JFrame {
                 .addComponent(cmbQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
-                .addGroup(PNLhomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin)
-                    .addComponent(btnRegister))
-                .addGap(30, 30, 30)
+                .addGap(140, 140, 140)
                 .addComponent(btnLB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BUTlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,18 +142,6 @@ public class QuizHutMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // Login
-        this.dispose();
-        new Login().setVisible(true);
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // Reg
-        this.dispose();
-        new Register().setVisible(true);
-    }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
         // Open Quiz
@@ -213,7 +177,7 @@ public class QuizHutMain extends javax.swing.JFrame {
     private void BUTlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUTlogoutActionPerformed
         // logout
         this.dispose();
-        new QuizHutMain().setVisible(true);
+        new Login().setVisible(true);
     }//GEN-LAST:event_BUTlogoutActionPerformed
 
     public static void main(String args[]) {
@@ -254,9 +218,7 @@ public class QuizHutMain extends javax.swing.JFrame {
     private javax.swing.JPanel PNLhome;
     private javax.swing.JLabel SELECT_MODULE;
     private javax.swing.JButton btnLB;
-    private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnQuiz;
-    private javax.swing.JButton btnRegister;
     private javax.swing.JComboBox<String> cmbQuiz;
     private javax.swing.JLabel lblName;
     // End of variables declaration//GEN-END:variables

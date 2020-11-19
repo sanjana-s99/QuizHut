@@ -47,18 +47,13 @@
                   <EmptySpace pref="303" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblName" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="btnLogin" min="-2" pref="74" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnRegister" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="BUTlogout" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="btnLB" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="btnQuiz" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="cmbQuiz" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="SELECT_MODULE" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="332" max="32767" attributes="0"/>
+                  <EmptySpace pref="338" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -73,12 +68,7 @@
                   <Component id="cmbQuiz" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnQuiz" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnLogin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnRegister" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                   <Component id="btnLB" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="BUTlogout" min="-2" pref="30" max="-2" attributes="0"/>
@@ -88,22 +78,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnLogin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Login"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnRegister">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Register"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="SELECT_MODULE">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
