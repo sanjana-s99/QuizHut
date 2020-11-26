@@ -1,5 +1,6 @@
 package QuizHut;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -24,10 +25,12 @@ public class Quiz extends javax.swing.JFrame {
     
     public Quiz() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
     }
     
     public Quiz(String name, int uidd, int qid){
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
         lblname.setText("Welcome : " + name);
         this.toname = name;
         this.uid = uidd;
@@ -221,15 +224,15 @@ public class Quiz extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(695, Short.MAX_VALUE)
-                .addComponent(lblname)
-                .addGap(105, 105, 105))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(150, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblSelectOne)
-                    .addComponent(lblQno)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblQno)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblname)
+                        .addGap(102, 102, 102))
                     .addComponent(lblQuestion)
                     .addComponent(radAns1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                     .addComponent(radAns2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -238,18 +241,18 @@ public class Quiz extends javax.swing.JFrame {
                     .addComponent(lblSec)
                     .addComponent(btnSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BTNhome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblname)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(lblQno)
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblQno)
+                    .addComponent(lblname))
                 .addGap(18, 18, 18)
                 .addComponent(lblQuestion)
-                .addGap(106, 106, 106)
+                .addGap(58, 58, 58)
                 .addComponent(lblSelectOne)
                 .addGap(18, 18, 18)
                 .addComponent(radAns1)
@@ -259,13 +262,13 @@ public class Quiz extends javax.swing.JFrame {
                 .addComponent(radAns3)
                 .addGap(18, 18, 18)
                 .addComponent(radAns4)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 55, Short.MAX_VALUE)
                 .addComponent(lblSec)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BTNhome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

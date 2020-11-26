@@ -1,5 +1,6 @@
 package QuizHut;
 
+import java.awt.Toolkit;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -10,6 +11,7 @@ public class QuizHutMain extends javax.swing.JFrame {
         initComponents();
         //populate combo box
         fillcmb();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
     }
     
     public String name = null;
@@ -18,6 +20,7 @@ public class QuizHutMain extends javax.swing.JFrame {
     public QuizHutMain(String Name, String uidd) {
         initComponents();
         fillcmb();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
         name = Name;
         this.uid = Integer.parseInt(uidd);
         lblName.setText("Welcome : " + Name);

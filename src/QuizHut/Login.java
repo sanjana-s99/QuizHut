@@ -1,11 +1,13 @@
 package QuizHut;
 
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
     }
 
     @SuppressWarnings("unchecked")

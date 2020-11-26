@@ -1,5 +1,6 @@
 package QuizHut;
 
+import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,12 +14,14 @@ public class HighScore extends javax.swing.JFrame {
     
     public HighScore() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
     }
 
     public HighScore(String name, String uidd) {
         toname = name;
         touid = uidd;
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
         dispData();
         //fill combo box with loading...
         fillcmb();
@@ -44,7 +47,7 @@ public class HighScore extends javax.swing.JFrame {
         DefaultTableModel tbl = (DefaultTableModel)tblRslt.getModel();
         tbl.setRowCount(0);
         int quizid =  cmbQuiz.getSelectedIndex()+1;
-        String query = "SELECT * FROM `result` WHERE `quiz_id` ="+quizid+" order by score desc limit 10";
+        String query = "SELECT * FROM `result` WHERE `quiz_id` ="+quizid+" order by score desc limit 25";
         try {
             Statement mystm = dbcon.connection().createStatement();
             ResultSet rs = mystm.executeQuery(query);
@@ -89,6 +92,7 @@ public class HighScore extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUIZHUT-LEADERBOARD");
+        setIconImages(null);
 
         jPanel1.setBackground(new java.awt.Color(12, 11, 22));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));

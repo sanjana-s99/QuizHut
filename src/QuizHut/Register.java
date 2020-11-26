@@ -1,11 +1,14 @@
 package QuizHut;
 
+import java.awt.Toolkit;
+
 
 public class Register extends javax.swing.JFrame {
 
     
     public Register() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
     }
 
     
